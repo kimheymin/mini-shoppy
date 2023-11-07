@@ -10,6 +10,9 @@ import NewProducts from "./pages/NewProducts";
 import ProductDetail from "./pages/ProductDetail";
 import MyCart from "./pages/MyCart";
 import { RouterProvider } from "react-router";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import LikeProducts from "./pages/LikeProducts";
 
 const router = createBrowserRouter([
   {
@@ -19,16 +22,39 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "/products", element: <Products /> },
-      { path: "/products/new", element: <NewProducts /> },
+      {
+        path: "/products/new",
+        element: (
+          <ProtectedRoute requireAdmin>
+            <NewProducts />
+          </ProtectedRoute>
+        ),
+      },
       { path: "/products/:id", element: <ProductDetail /> },
-      { path: "/cart", element: <MyCart /> },
+      {
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <MyCart />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/like",
+        element: (
+          <ProtectedRoute>
+            <LikeProducts />
+          </ProtectedRoute>
+        ),
+      },
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </>
 );
