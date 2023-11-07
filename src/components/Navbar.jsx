@@ -47,9 +47,9 @@ export default function Navbar() {
           )}
         </div>
       </header>
-      <nav className="mb-4 p-4 border border-zinc-300">
+      <nav className="p-4 border-t border-zinc-300">
         <ul className="flex justify-center gap-10 ">
-          <li>ALL</li>
+          <Link to="/products">ALL</Link>
           <li>상의</li>
           <li>하의</li>
           <li>원피스</li>
