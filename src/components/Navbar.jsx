@@ -4,6 +4,7 @@ import { BiHeart, BiCart, BiUser } from "react-icons/bi";
 import { MdAddBox } from "react-icons/md";
 import { useAuthContext } from "../context/AuthContext";
 import User from "./User";
+import CartStatus from "./CartStatus";
 
 export default function Navbar() {
   const { user, login, logout } = useAuthContext();
@@ -25,7 +26,7 @@ export default function Navbar() {
             <BiHeart className="text-4xl hover:text-orange-500" />
           </Link>
           <Link to="/cart">
-            <BiCart className="text-4xl hover:text-orange-500" />
+            <CartStatus />
           </Link>
           {user && user.isAdmin && (
             <Link to="/products/new">
