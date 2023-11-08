@@ -1,16 +1,17 @@
-import React from "react";
-import { BiHeart } from "react-icons/bi";
+import React, { useState } from "react";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({
   product,
   product: { id, imageURL, price, text },
 }) {
+  const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
-  const priceKR = price.toLocaleString("kr");
   const handleClick = () => {
-    navigate(`/products/${id}`, { state: { product } });
+    navigate(`/products/${id}`, { state: { product, clicked } });
   };
+  const handleAddLike = () => setClicked(!clicked);
 
   return (
     <li className="overflow-hidden transition-all hover:scale-105">
@@ -23,12 +24,19 @@ export default function ProductCard({
       <div className=" mt-2 px-2 text-lg flex justify-between items-center">
         <div>
           <h3 className="text-sm">{text}</h3>
-          <p className="font-semibold text-xl">₩ {priceKR}</p>
+          <p className="font-semibold text-xl">
+            ₩ {price.toLocaleString("kr")}
+          </p>
         </div>
-        <button>
-          <BiHeart />
+        <button onClick={handleAddLike}>
+          {clicked ? (
+            <AiFillHeart className="text-red-400" />
+          ) : (
+            <AiOutlineHeart />
+          )}
         </button>
       </div>
     </li>
+    // className={`${clicked} ? text-red-400 : '' `}
   );
 }

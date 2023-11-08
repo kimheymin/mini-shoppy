@@ -1,8 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { useAuthContext } from "../context/AuthContext";
-import { addOrUpdateToCart } from "../api/firebase";
+import { useAuthContext } from "../../context/AuthContext";
+import { addOrUpdateToCart } from "../../api/firebase";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 export default function ProductDetail() {
   const {
@@ -11,8 +12,11 @@ export default function ProductDetail() {
   const {
     state: {
       product: { id, imageURL, text, category, price, options },
+      clicked,
     },
   } = useLocation();
+
+  console.log(clicked);
 
   const [selected, setSelected] = useState(options && options[0]);
   const handleSelect = (e) => setSelected(e.target.value);
@@ -31,7 +35,16 @@ export default function ProductDetail() {
     <section className="flex flex-col md:flex-row p-4 justify-center">
       <img className="px-4" src={imageURL} alt={text} />
       <div className="w-full basis-5/12 flex flex-col p-4">
-        <p className="my-4 text-gray-700">{category}</p>
+        <div className="flex justify-between">
+          <p className="my-4 text-gray-700">{category}</p>
+          <button className="text-3xl">
+            {clicked ? (
+              <AiFillHeart className="text-red-400" />
+            ) : (
+              <AiOutlineHeart />
+            )}
+          </button>
+        </div>
         <h2 className="text-3xl font-bold py-2">{text}</h2>
         <p className="text-2xl font-semibold py-2">
           ₩ {price.toLocaleString("kr")}

@@ -73,7 +73,7 @@ export async function addProduct(product, image) {
     ...product,
     id,
     price: parseInt(product.price),
-    image,
+    imageURL: image,
     options: product.options.split(","),
   });
 }

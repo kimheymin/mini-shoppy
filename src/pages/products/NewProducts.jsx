@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { uploadImage } from "../api/uploader";
-import { addProduct } from "../api/firebase";
+import { uploadImage } from "../../api/uploader";
+import useProducts from "../../hooks/useProducts";
 
 export default function NewProducts() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
   const [uploading, setUploading] = useState(false);
   const [success, setSuccess] = useState();
+  const { addProduct } = useProducts();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,13 +16,17 @@ export default function NewProducts() {
     setUploading(true);
     uploadImage(file)
       .then((url) => {
-        console.log(url);
-        addProduct(product, url).then(() => {
-          setSuccess("성공적으로 제품이 추가되었습니다.");
-          setTimeout(() => {
-            setSuccess(null);
-          }, 2000);
-        });
+        addProduct.mutate(
+          { product, url },
+          {
+            onSuccess: () => {
+              setSuccess("성공적으로 제품이 추가되었습니다.");
+              setTimeout(() => {
+                setSuccess(null);
+              }, 2000);
+            },
+          }
+        );
       })
       .finally(setUploading(false));
   };
@@ -56,8 +61,8 @@ export default function NewProducts() {
         />
         <input
           type="text"
-          name="title"
-          value={product.title ?? ""}
+          name="text"
+          value={product.text ?? ""}
           onChange={handleChange}
           placeholder="제품명"
         />

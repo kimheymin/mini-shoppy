@@ -2,9 +2,10 @@ import React from "react";
 import { getCart } from "../api/firebase";
 import { useAuthContext } from "../context/AuthContext";
 import { useQuery } from "react-query";
-import CartItem from "../components/CartItem";
-import PriceCard from "../components/PriceCard";
+
 import { FaPlusCircle, FaEquals } from "react-icons/fa";
+import CartItem from "../components/cart/CartItem";
+import PriceCard from "../components/products/PriceCard";
 
 const DELIVERY_PRICE = 3000;
 export default function MyCart() {

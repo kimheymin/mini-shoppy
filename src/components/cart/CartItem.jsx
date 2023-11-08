@@ -1,7 +1,7 @@
 import React from "react";
 import { CiSquareMinus, CiSquarePlus } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
-import { addOrUpdateToCart, removeFromCart } from "../api/firebase";
+import { addOrUpdateToCart, removeFromCart } from "../../api/firebase";
 
 const ICON_CLASS = "transition-all cursor-pointer hover:scale-105 mx-1";
 

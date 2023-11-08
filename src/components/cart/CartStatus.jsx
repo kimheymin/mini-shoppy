@@ -1,8 +1,8 @@
 import React from "react";
 import { BiCart } from "react-icons/bi";
 import { useQuery } from "react-query";
-import { getCart } from "../api/firebase";
-import { useAuthContext } from "../context/AuthContext";
+import { getCart } from "../../api/firebase";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function CartStatus() {
   const { uid } = useAuthContext();
@@ -10,7 +10,7 @@ export default function CartStatus() {
 
   return (
     <div className="relative">
-      <BiCart className="text-4xl hover:text-orange-500" />
+      <BiCart className="text-4xl hover:text-brand" />
       {products && (
         <p className="w-6 h-6 text-white text-center bg-green-600 font-bold rounded-full absolute -top-1 -right-2">
           {products.length}
