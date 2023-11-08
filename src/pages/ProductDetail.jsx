@@ -13,7 +13,6 @@ export default function ProductDetail() {
       product: { id, imageURL, text, category, price, options },
     },
   } = useLocation();
-  const priceKR = price.toLocaleString("kr");
 
   const [selected, setSelected] = useState(options && options[0]);
   const handleSelect = (e) => setSelected(e.target.value);
@@ -34,7 +33,9 @@ export default function ProductDetail() {
       <div className="w-full basis-5/12 flex flex-col p-4">
         <p className="my-4 text-gray-700">{category}</p>
         <h2 className="text-3xl font-bold py-2">{text}</h2>
-        <p className="text-2xl font-semibold py-2">₩ {priceKR}</p>
+        <p className="text-2xl font-semibold py-2">
+          ₩ {price.toLocaleString("kr")}
+        </p>
         <div className="w-full h-px my-9 border-b border-gray-200"></div>
         <div>
           <label htmlFor="select">Size : </label>
