@@ -5,9 +5,7 @@ import {
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
-  GithubAuthProvider,
 } from "firebase/auth";
-
 import { getDatabase, ref, get, set, remove } from "firebase/database";
 import uuid from "react-uuid";
 
@@ -20,32 +18,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
-const provider2 = new GithubAuthProvider();
 const auth = getAuth();
 const database = getDatabase(app);
 
-export async function login() {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      return user;
-    })
-    .catch((error) => console.log(error));
+export function login() {
+  signInWithPopup(auth, provider).catch(console.error);
 }
 
-export async function login2() {
-  return signInWithPopup(auth, provider2)
-    .then((result) => {
-      const user = result.user;
-      return user;
-    })
-    .catch((error) => console.log(error));
-}
-
-export async function logout() {
-  return signOut(auth)
-    .then(() => null)
-    .catch((error) => console.log(error));
+export function logout() {
+  signOut(auth).catch(console.error);
 }
 
 export function loginState(callback) {
@@ -97,7 +78,7 @@ export async function getCart(userId) {
 }
 
 export async function addOrUpdateToCart(userId, product) {
-  return set(ref(database, `carts/${userId}/${product.id}}`), product);
+  return set(ref(database, `carts/${userId}/${product.id}`), product);
 }
 
 export async function removeFromCart(userId, productId) {

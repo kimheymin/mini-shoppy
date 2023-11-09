@@ -8,16 +8,17 @@ const ICON_CLASS = "transition-all cursor-pointer hover:scale-105 mx-1";
 export default function CartItem({
   product,
   product: { id, imageURL, text, price, option, quantity },
-  uid,
 }) {
   const { addOrUpdateItem, removeItem } = useCarts();
 
   const handleIncrement = () =>
     addOrUpdateItem.mutate({ ...product, quantity: quantity + 1 });
+
   const handleDecrement = () => {
     if (quantity < 2) return;
     addOrUpdateItem.mutate({ ...product, quantity: quantity - 1 });
   };
+
   const handleDelete = () => removeItem.mutate(id);
 
   return (

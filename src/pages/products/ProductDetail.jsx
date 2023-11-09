@@ -6,7 +6,6 @@ import Button from "../../ui/Button";
 import useCarts from "../../hooks/useCarts";
 
 export default function ProductDetail() {
-  const { uid } = useAuthContext();
   const {
     state: {
       product: { id, imageURL, text, category, price, options },
