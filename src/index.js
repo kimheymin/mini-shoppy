@@ -5,14 +5,12 @@ import App from "./App";
 import { createBrowserRouter } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import NewProducts from "./pages/NewProducts";
-import ProductDetail from "./pages/ProductDetail";
 import MyCart from "./pages/MyCart";
 import { RouterProvider } from "react-router";
-import Login from "./pages/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
-import LikeProducts from "./pages/LikeProducts";
+import Products from "./pages/products/Products";
+import NewProducts from "./pages/products/NewProducts";
+import ProtectedRoute from "./components/header/ProtectedRoute";
+import ProductDetail from "./pages/products/ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -39,15 +37,6 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "/like",
-        element: (
-          <ProtectedRoute>
-            <LikeProducts />
-          </ProtectedRoute>
-        ),
-      },
-      { path: "/login", element: <Login /> },
     ],
   },
 ]);

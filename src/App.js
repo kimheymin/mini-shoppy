@@ -1,8 +1,8 @@
 import { Outlet } from "react-router";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import { AuthContextProvider } from "./context/AuthContext";
 import { QueryClientProvider, QueryClient } from "react-query";
+import Navbar from "./components/header/Navbar";
 
 const queryClient = new QueryClient();
 function App() {

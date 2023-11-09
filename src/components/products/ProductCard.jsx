@@ -1,5 +1,5 @@
-import React from "react";
-import { BiHeart } from "react-icons/bi";
+import React, { useState } from "react";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({
@@ -7,7 +7,6 @@ export default function ProductCard({
   product: { id, imageURL, price, text },
 }) {
   const navigate = useNavigate();
-  const priceKR = price.toLocaleString("kr");
   const handleClick = () => {
     navigate(`/products/${id}`, { state: { product } });
   };
@@ -23,11 +22,10 @@ export default function ProductCard({
       <div className=" mt-2 px-2 text-lg flex justify-between items-center">
         <div>
           <h3 className="text-sm">{text}</h3>
-          <p className="font-semibold text-xl">₩ {priceKR}</p>
+          <p className="font-semibold text-xl">
+            ₩ {price.toLocaleString("kr")}
+          </p>
         </div>
-        <button>
-          <BiHeart />
-        </button>
       </div>
     </li>
   );

@@ -4,11 +4,11 @@ export default function User({ user: { displayName, photoURL } }) {
   return (
     <div>
       <img
-        className="w-11 h-11 rounded-full m-auto "
+        className="w-11 h-11 rounded-full m-auto hover:cursor-pointer hidden md:block"
         src={photoURL}
         alt={displayName}
       />
-      {/* <span className="text-sm">{displayName} 님</span> */}
+      <span className="font-bold">{displayName}</span> 님
     </div>
   );
 }
