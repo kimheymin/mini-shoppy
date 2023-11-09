@@ -6,12 +6,10 @@ export default function ProductCard({
   product,
   product: { id, imageURL, price, text },
 }) {
-  const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/products/${id}`, { state: { product, clicked } });
+    navigate(`/products/${id}`, { state: { product } });
   };
-  const handleAddLike = () => setClicked(!clicked);
 
   return (
     <li className="overflow-hidden transition-all hover:scale-105">
@@ -28,15 +26,7 @@ export default function ProductCard({
             ₩ {price.toLocaleString("kr")}
           </p>
         </div>
-        <button onClick={handleAddLike}>
-          {clicked ? (
-            <AiFillHeart className="text-red-400" />
-          ) : (
-            <AiOutlineHeart />
-          )}
-        </button>
       </div>
     </li>
-    // className={`${clicked} ? text-red-400 : '' `}
   );
 }

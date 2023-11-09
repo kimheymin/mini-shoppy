@@ -2,21 +2,17 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import { addOrUpdateToCart } from "../../api/firebase";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import Button from "../../ui/Button";
+import useCarts from "../../hooks/useCarts";
 
 export default function ProductDetail() {
-  const {
-    user: { uid },
-  } = useAuthContext();
+  const { uid } = useAuthContext();
   const {
     state: {
       product: { id, imageURL, text, category, price, options },
-      clicked,
     },
   } = useLocation();
-
-  console.log(clicked);
+  const { addOrUpdateItem } = useCarts();
 
   const [selected, setSelected] = useState(options && options[0]);
   const handleSelect = (e) => setSelected(e.target.value);
@@ -29,7 +25,7 @@ export default function ProductDetail() {
       option: selected,
       quantity: 1,
     };
-    addOrUpdateToCart(uid, product);
+    addOrUpdateItem.mutate(product);
   };
   return (
     <section className="flex flex-col md:flex-row p-4 justify-center">
@@ -37,13 +33,6 @@ export default function ProductDetail() {
       <div className="w-full basis-5/12 flex flex-col p-4">
         <div className="flex justify-between">
           <p className="my-4 text-gray-700">{category}</p>
-          <button className="text-3xl">
-            {clicked ? (
-              <AiFillHeart className="text-red-400" />
-            ) : (
-              <AiOutlineHeart />
-            )}
-          </button>
         </div>
         <h2 className="text-3xl font-bold py-2">{text}</h2>
         <p className="text-2xl font-semibold py-2">
@@ -64,7 +53,7 @@ export default function ProductDetail() {
               ))}
           </select>
         </div>
-        <button onClick={handleClick}>장바구니에 추가</button>
+        <Button text={"장바구니에 추가"} onClick={handleClick} />
       </div>
     </section>
   );
