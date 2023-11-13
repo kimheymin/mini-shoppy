@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# MINI-SHOPPY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React로 만든 미니 쇼핑몰 사이트입니다. 사용자는 구글 로그인을 할 수 있으며, admin인 사용자는 상품을 신규로 등록할 수 있습니다.
 
-## Available Scripts
+### https://scale-trading-counter.netlify.app
 
-In the project directory, you can run:
+<br />
 
-### `yarn start`
+## Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=black"/>
+<img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br />
 
-### `yarn test`
+## 주요 기능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Firebase를 이용한 사용자 로그인 및 인증 (구글 로그인)
+2. 상품 등록 (admin인 사용자만 가능)
+3. 상품 카페고리별 목록 보기
+4. 특정 상품 장바구니 추가, 삭제, 수량 변경
+5. 메인 배너 이미지 슬라이드 구현
 
-### `yarn build`
+### 상세 설명
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. 사용자는 총 3분류로 나뉜다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 일반 사용자 (로그인 ⭕️)
+- admin 사용자 (로그인 ⭕️)
+- 일반 사용자 (로그인 ❌️)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###
 
-### `yarn eject`
+2.  메뉴는 총 3개이며, 각 메뉴를 이용할 수 있는 사용자는 다음과 같다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 상품
+  - 모든 사용자 (로그인 ⭕️, 로그인 ❌️)
+- 장바구니
+  - 일반 사용자 (로그인 ⭕️)
+  - admin 사용자 (로그인 ⭕️)
+- 상품등록
+  - admin 사용자 (로그인 ⭕️)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. 특정 사용자가 이용할 수 없는 메뉴 경로를 URL에 직접 입력 후 페이지에 접근하려는 경우 메인페이지로 이동시킨다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 화면
 
-## Learn More
+1. 로그인
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![shoppy-main](https://github.com/kimheymin/mini-shoppy/assets/80433501/daf3b381-8377-491e-8c00-0d15e92ef6d4)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. 카테고리별 목록 보기
 
-### Code Splitting
+![shoppy-list](https://github.com/kimheymin/mini-shoppy/assets/80433501/6d6cdc19-8b6e-4d84-8bc7-30060c248bc7)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. 장바구니에 상품 추가, 삭제
 
-### Analyzing the Bundle Size
+![shoppy-show](https://github.com/kimheymin/mini-shoppy/assets/80433501/e2a2f47b-471d-4a01-b2ff-819e10070e7d)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. admin 사용자 상품 등록
+   ![shoppy-add](https://github.com/kimheymin/mini-shoppy/assets/80433501/54ad4f2b-a603-4083-b00f-c177407bc1e6)

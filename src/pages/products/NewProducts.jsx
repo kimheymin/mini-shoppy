@@ -29,13 +29,14 @@ export default function NewProducts() {
           }
         );
       })
-      .finally(setUploading(false));
+      .finally(() => setUploading(false));
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "file") {
       setFile(files && files[0]);
+      return;
     }
     setProduct((prev) => ({ ...prev, [name]: value }));
   };
@@ -89,7 +90,10 @@ export default function NewProducts() {
             onChange={handleChange}
             placeholder="옵션(콤마(,)로 구분)"
           />
-          <Button text={uploading ? "업로드 중..." : "등록하기"} />
+          <Button
+            text={uploading ? "업로드 중..." : "등록하기"}
+            disabled={uploading}
+          />
         </form>
       </div>
     </section>
