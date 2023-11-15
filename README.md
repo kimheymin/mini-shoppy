@@ -45,18 +45,12 @@
 
 ### 화면
 
-1. 로그인
+1. 메인
+![image](https://github.com/kimheymin/mini-shoppy/assets/80433501/e24496f6-4fcc-401f-80fc-7ab1b6e68f42)
 
-![shoppy-main](https://github.com/kimheymin/mini-shoppy/assets/80433501/daf3b381-8377-491e-8c00-0d15e92ef6d4)
+2. 장바구니 목록
+![image](https://github.com/kimheymin/mini-shoppy/assets/80433501/1f519ede-78fb-4666-bd3d-85c93798819f)
 
-2. 카테고리별 목록 보기
+3. admin 사용자 상품 등록
+![image](https://github.com/kimheymin/mini-shoppy/assets/80433501/49aebb1d-1d9c-44d0-a76f-623ea7fe8a04)
 
-![shoppy-list](https://github.com/kimheymin/mini-shoppy/assets/80433501/6d6cdc19-8b6e-4d84-8bc7-30060c248bc7)
-
-3. 장바구니에 상품 추가, 삭제
-
-![shoppy-show](https://github.com/kimheymin/mini-shoppy/assets/80433501/e2a2f47b-471d-4a01-b2ff-819e10070e7d)
-
-4. admin 사용자 상품 등록
-
-![shoppy-add](https://github.com/kimheymin/mini-shoppy/assets/80433501/54ad4f2b-a603-4083-b00f-c177407bc1e6)
