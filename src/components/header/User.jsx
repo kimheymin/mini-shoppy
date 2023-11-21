@@ -8,7 +8,7 @@ export default function User({ user: { displayName, photoURL } }) {
         src={photoURL}
         alt={displayName}
       />
-      <span className="font-bold">{displayName}</span> 님
+      <span className="text-sm font-bold md:text-md">{displayName}</span> 님
     </div>
   );
 }

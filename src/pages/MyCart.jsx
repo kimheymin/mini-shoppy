@@ -21,7 +21,7 @@ export default function MyCart() {
       0
     );
   return (
-    <section className="p-8 flex flex-col w-8/12 m-auto">
+    <section className="w-full md:w-8/12 p-8 flex flex-col m-auto">
       <p className="text-2xl text-center font-bold pb-4 border-b border-gray-200">
         장바구니
       </p>
@@ -30,12 +30,12 @@ export default function MyCart() {
       )}
       {hasProduct && (
         <>
-          <ul className="border-b border-gray-300 mb-8 p-4 px-8">
+          <ul className="px-0 border-b border-gray-300 mb-8 p-4 md:px-8">
             {products &&
               products.map((item) => <CartItem key={item.id} product={item} />)}
           </ul>
 
-          <div className="flex justify-between items-center mb-6 px-2 md:px-8 lg:px-16">
+          <div className="flex justify-between items-center mb-6 px-2 md:px-8 lg:px-16 ">
             <PriceCard
               text="상품 총액"
               price={totalPrice.toLocaleString("kr")}
